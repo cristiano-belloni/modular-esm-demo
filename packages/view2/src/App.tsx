@@ -46,17 +46,22 @@ export default function App(): JSX.Element {
           ['Internet Domain'],
         ],
       };
-      console.log(res, { x0, x1 }, { y0, y1 });
       return Promise.resolve(res);
     }
-    (regTableInstance.current as RegularTableElement).setDataListener(
-      getDataSlice,
-    );
+    const table = regTableInstance.current as RegularTableElement;
+    table.setDataListener(getDataSlice);
+    table.addStyleListener(() => {
+      const ths: NodeListOf<HTMLTableCellElement> =
+        table.querySelectorAll('thead th');
+      for (const th of ths) {
+        th.style.textAlign = 'left';
+        th.style.fontWeight = '900';
+        th.style.padding = '0 0 12px 0';
+      }
+    });
   });
 
   useEffect(() => {
-    console.log(regTableInstance.current);
-
     (regTableInstance.current as RegularTableElement).draw();
   });
 
