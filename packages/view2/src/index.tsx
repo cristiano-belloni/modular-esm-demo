@@ -1,5 +1,6 @@
 import * as React from 'react';
+import App from './App';
 
-export default function View2(): JSX.Element {
-  return <div>This is View2</div>;
+export default function View1(): JSX.Element {
+  return <App />;
 }
