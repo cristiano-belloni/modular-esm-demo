@@ -9,7 +9,7 @@ This is a demo repository for Modular's experimental
 ## Pre-requisites
 
 - Modular from [this branch](https://github.com/jpmorganchase/modular/pull/1382)
-  should be used.
+  should be used. I aliased it to `modular-dev` in the [Manual import demo](#manual-import-demo) section below
 - Webpack 5 support is
   [still](https://github.com/jpmorganchase/modular/pull/1421)
   [in flux](https://github.com/jpmorganchase/modular/pull/1439);
