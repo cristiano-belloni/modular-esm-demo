@@ -29,10 +29,10 @@ To run them independently, just start them normally:
 
 They will get all their dependencies from the default ESM CDN (skypack, at the
 moment) and they will be served on port 3000 like a normal standalone
-application, with a synthetic `index.html` and ESM `\_trampoline.js` to
+application, with a synthetic `index.html` and an ESM `_trampoline.js` module to
 bootstrap them.
 
-Both the views, when built, contain a index-[hash].js esm file that can be
+Both the views, when built, contain a `index-[hash].js` esm module that can be
 `import`ed at runtime from any
 [modern](https://caniuse.com/mdn-javascript_statements_import)
 [browser](https://caniuse.com/es6-module-dynamic-import).
