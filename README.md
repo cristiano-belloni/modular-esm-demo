@@ -1,19 +1,15 @@
 # modular-esm-demo
 
 This is a demo repository for Modular's experimental
-[ESM CDN support](https://github.com/jpmorganchase/modular/pull/1382).
+[ESM CDN support](https://github.com/jpmorganchase/modular/pull/1439).
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/315834/156772150-3252b2b9-2f29-4f2e-9e82-354a06779d94.png">
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/315834/156772205-51c89751-a7f4-4d9e-a7aa-03c9e5f46728.png">
 
 ## Pre-requisites
 
-- Modular from [this branch](https://github.com/jpmorganchase/modular/pull/1382)
+- Modular from [this branch](https://github.com/jpmorganchase/modular/pull/1439)
   should be used. I aliased it to `modular-dev` in the [Manual import demo](#manual-import-demo) section below
-- Webpack 5 support is
-  [still](https://github.com/jpmorganchase/modular/pull/1421)
-  [in flux](https://github.com/jpmorganchase/modular/pull/1439);
-  `USE_MODULAR_ESBUILD='true'` should be used to build ESM views for now.
 
 ## How to run
 
@@ -38,6 +34,8 @@ Both the views, when built, contain a `index-[hash].js` esm module that can be
 [browser](https://caniuse.com/es6-module-dynamic-import).
 
 ## Manual import demo
+
+*This is an example of how to load the two ESM views at runtime with the browser's Developer Tools, to exemplify features like ease of use and dependency deduplication*
 
 - Build the two views:
   - `USE_MODULAR_ESBUILD='true' modular-dev build view1`
