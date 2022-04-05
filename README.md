@@ -9,7 +9,8 @@ This is a demo repository for Modular's experimental
 ## Pre-requisites
 
 - Modular from [this branch](https://github.com/jpmorganchase/modular/pull/1439)
-  should be used. I aliased it to `modular-dev` in the [Manual import demo](#manual-import-demo) section below
+  should be used. I aliased it to `modular-dev` in the
+  [Manual import demo](#manual-import-demo) section below
 
 ## How to run
 
@@ -35,7 +36,9 @@ Both the views, when built, contain a `index-[hash].js` esm module that can be
 
 ## Manual import demo
 
-*This is an example of how to load the two ESM views at runtime with the browser's Developer Tools, to exemplify features like ease of use and dependency deduplication*
+_This is an example of how to load the two ESM views at runtime with the
+browser's Developer Tools, to exemplify features like ease of use and dependency
+deduplication_
 
 - Build the two views:
   - `USE_MODULAR_ESBUILD='true' modular-dev build view1`
@@ -74,3 +77,7 @@ Both the views, when built, contain a `index-[hash].js` esm module that can be
   - `const { default: View2 } = await import('http://localhost:5002/static/js/index-[HASH].js');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View2, null), view2);`
+- Import and apply view1 stylesheet (after, to show how it works) -
+  [this is fancy but works only in Chrome](https://web.dev/css-module-scripts/)
+  - `const sheet = await import('http://localhost:5001/static/css/index-[HASH].css', { assert: { type: 'css' }});`
+  - `document.adoptedStyleSheets = [...document.adoptedStyleSheets, cssModule.default];`

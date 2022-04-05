@@ -18,6 +18,7 @@ import {
   number,
 } from 'minifaker';
 import 'minifaker/locales/en';
+import './index.css';
 
 export default function App(): JSX.Element {
   const theme = useMantineTheme();
@@ -30,13 +31,14 @@ export default function App(): JSX.Element {
   const apiGender = gender === 'female' ? 'women' : 'men';
 
   return (
-    <div style={{ width: 480, margin: 'auto' }}>
-      <Card shadow="sm" padding="xl" withBorder={true}>
+    <div className="card-component">
+      <Card className="card" shadow="sm" padding="xl" withBorder={true}>
         <Group
           position="apart"
-          style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
+          className="group"
+          style={{ marginTop: theme.spacing.sm }}
         >
-          <Group style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+          <Group className="group" style={{ marginTop: theme.spacing.sm }}>
             <Avatar
               src={`https://randomuser.me/api/portraits/${apiGender}/${number({
                 min: 0,
@@ -71,7 +73,7 @@ export default function App(): JSX.Element {
           variant="light"
           color="blue"
           fullWidth
-          style={{ marginTop: 14 }}
+          className="button"
           onClick={refresh}
         >
           Generate another profile
