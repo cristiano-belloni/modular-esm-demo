@@ -77,7 +77,8 @@ deduplication_
   - `const { default: View2 } = await import('http://localhost:5002/static/js/index-[HASH].js');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View2, null), view2);`
-- Import and apply view1 stylesheet (after, to show how it works) -
-  [this is fancy but works only in Chrome](https://web.dev/css-module-scripts/)
-  - `const sheet = await import('http://localhost:5001/static/css/index-[HASH].css', { assert: { type: 'css' }});`
+- Import and apply view1 stylesheet (after, to show how it works) - this uses
+  [CSS Module Scripts](https://web.dev/css-module-scripts/), which, if needed,
+  can be sandboxed by the host at runtime.
+  - `const cssModule = await import('http://localhost:5001/static/css/index-[HASH].css', { assert: { type: 'css' }});`
   - `document.adoptedStyleSheets = [...document.adoptedStyleSheets, cssModule.default];`
