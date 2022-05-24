@@ -4,7 +4,7 @@
   "main": "src/index.tsx",
   "license": "UNLICENSED",
   "modular": {
-    "type": "view"
+    "type": "esm-view"
   },
   "files": [
     "README.md"
