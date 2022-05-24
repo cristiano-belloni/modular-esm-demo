@@ -8,8 +8,7 @@ This is a demo repository for Modular's experimental
 
 ## Pre-requisites
 
-- Modular from [this branch](https://github.com/jpmorganchase/modular/tree/release/v4)
-  should be used. I aliased it to `modular-dev` in the
+- Modular >=3.1 should be used. I aliased it to `modular-dev` in the
   [Manual import demo](#manual-import-demo) section below
 
 ## How to run
