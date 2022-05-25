@@ -72,13 +72,13 @@ deduplication_
   - `const { default: React } = await import('https://cdn.skypack.dev/react@17.0.2');`
   - `const { default: ReactDom } = await import('https://cdn.skypack.dev/react-dom@17.0.2');`
 - Import view1 dynamically.
-  - `const { default: View1 } = await import('http://localhost:5001/static/js/[entrypoint].js');`
+  - `const View1 = await import('http://localhost:5001/static/js/[entrypoint].js');`
 - Render it onto its container div
-  - `ReactDom.render(React.createElement(View1, null), view1);`
+  - `ReactDom.render(React.createElement(View1.default, null), view1);`
 - Import view2 dynamically.
-  - `const { default: View2 } = await import('http://localhost:5002/static/js/[entrypoint].js');`
+  - `const View2 = await import('http://localhost:5002/static/js/[entrypoint].js');`
 - Render it onto its container div
-  - `ReactDom.render(React.createElement(View2, null), view2);`
+  - `ReactDom.render(React.createElement(View2.default, null), view2);`
 - Import and apply view1 stylesheet (after, to show how it works) - this uses
   [CSS Module Scripts](https://web.dev/css-module-scripts/), which, if needed,
   can be sandboxed by the host at runtime.
