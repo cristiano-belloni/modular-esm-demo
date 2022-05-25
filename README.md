@@ -22,8 +22,6 @@ To run them independently, just start them normally:
 
 `modular-dev start view1` `modular-dev start view2`
 
-You can use also `USE_MODULAR_ESBUILD='true' to build / start them with esbuild.
-
 They will get all their dependencies from the default ESM CDN (skypack, at the
 moment) and they will be served on port 3000 like a normal standalone
 application, with a synthetic `index.html` and an ESM `_trampoline.js` module to
@@ -41,9 +39,9 @@ _This is an example of how to load the two ESM views at runtime with the
 browser's Developer Tools, to exemplify features like ease of use and dependency
 deduplication_
 
-- Build the two views (using esbuil because it's faster!):
-  - `USE_MODULAR_ESBUILD='true' modular-dev build view1`
-  - `USE_MODULAR_ESBUILD='true' modular-dev build view2`
+- Build the two views:
+  - modular-dev build view1`
+  - modular-dev build view2`
 - Serve view1 with something that supports CORS:
   - `cd dist/view1`
   - `http-server --cors -c-1 -p 5001 .`
