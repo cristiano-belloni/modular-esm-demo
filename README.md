@@ -69,8 +69,8 @@ deduplication_
   - `view1.innerText = 'VIEW 1';`
   - `view2.innerText = 'VIEW 2';`
 - Import React and React-DOM as ESM modules to bootstrap the views
-  - `const { default: React } = await import('https://cdn.skypack.dev/react^17.0.2');`
-  - `const { default: ReactDom } = await import('https://cdn.skypack.dev/react-dom^17.0.2');`
+  - `const { default: React } = await import('https://cdn.skypack.dev/react@17.0.2');`
+  - `const { default: ReactDom } = await import('https://cdn.skypack.dev/react-dom@17.0.2');`
 - Import view1 dynamically.
   - `const { default: View1 } = await import('http://localhost:5001/static/js/[entrypoint].js');`
 - Render it onto its container div
