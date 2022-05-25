@@ -40,8 +40,8 @@ browser's Developer Tools, to exemplify features like ease of use and dependency
 deduplication_
 
 - Build the two views:
-  - modular-dev build view1`
-  - modular-dev build view2`
+  - `modular-dev build view1`
+  - `modular-dev build view2`
 - Serve view1 with something that supports CORS:
   - `cd dist/view1`
   - `http-server --cors -c-1 -p 5001 .`
