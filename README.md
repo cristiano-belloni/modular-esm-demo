@@ -48,6 +48,9 @@ deduplication_
 - Serve view2 in the same way, on a different port:
   - `cd dist/view2`
   - `http-server --cors -c-1 -p 5002 .`
+- Entrypoints can be found at:
+  - http://localhost:5001/package.json
+  - http://localhost:5002/package.json
 - Go to a page with no CSP policy and open the Dev Tools (`about:blank` won't
   allow you to import from the console, normally I use https://google.com)
 - Clean the page, create a container, create view divs, append them to the body,
@@ -68,13 +71,11 @@ deduplication_
 - Import React and React-DOM as ESM modules to bootstrap the views
   - `const { default: React } = await import('https://cdn.skypack.dev/react^17.0.2');`
   - `const { default: ReactDom } = await import('https://cdn.skypack.dev/react-dom^17.0.2');`
-- Import view1 dynamically. You can find the entrypoint at
-  http://localhost:5001/package.json
+- Import view1 dynamically.
   - `const { default: View1 } = await import('http://localhost:5001/static/js/[entrypoint].js');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View1, null), view1);`
-- Import view2 dynamically. You can find the entrypoint at
-  http://localhost:5002/package.json
+- Import view2 dynamically.
   - `const { default: View2 } = await import('http://localhost:5002/static/js/[entrypoint].js');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View2, null), view2);`
