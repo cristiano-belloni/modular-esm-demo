@@ -5,12 +5,6 @@ This is a demo repository for Modular's experimental ESM CDN support.
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/315834/156772150-3252b2b9-2f29-4f2e-9e82-354a06779d94.png">
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/315834/156772205-51c89751-a7f4-4d9e-a7aa-03c9e5f46728.png">
 
-## Pre-requisites
-
-- Modular >=3.1 should be used. If you use a dev build of Modular, just alias it
-  to `modular-dev`, like I did in in the
-  [Manual import demo](#manual-import-demo) section below.
-
 ## How to run
 
 In the repository there are two modular views, `view1` and `view2`, implementing
@@ -20,7 +14,8 @@ common (`react`, `react-dom`, `minifaker`) and some of them not (`mantine`,
 
 To run them independently, just start them normally:
 
-`modular-dev start view1` `modular-dev start view2`
+- `yarn modular start view1`
+- `yarn modular start view2`
 
 They will get all their dependencies from the default ESM CDN (skypack, at the
 moment) and they will be served on port 3000 like a normal standalone
@@ -40,8 +35,8 @@ browser's Developer Tools, to exemplify features like ease of use and dependency
 deduplication_
 
 - Build the two views:
-  - `modular-dev build view1`
-  - `modular-dev build view2`
+  - `yarn modular build view1`
+  - `yarn modular build view2`
 - Serve view1 with something that supports CORS:
   - `cd dist/view1`
   - `http-server --cors -c-1 -p 5001 .`
