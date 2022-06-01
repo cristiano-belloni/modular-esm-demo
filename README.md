@@ -38,11 +38,9 @@ deduplication_
   - `yarn modular build view1`
   - `yarn modular build view2`
 - Serve view1 with something that supports CORS:
-  - `cd dist/view1`
-  - `http-server --cors -c-1 -p 5001 .`
+  - `yarn serve:view1`
 - Serve view2 in the same way, on a different port:
-  - `cd dist/view2`
-  - `http-server --cors -c-1 -p 5002 .`
+  - `yarn serve:view2`
 - Entrypoints can be found at:
   - http://localhost:5001/package.json
   - http://localhost:5002/package.json
@@ -66,16 +64,19 @@ deduplication_
 - Import React and React-DOM as ESM modules to bootstrap the views
   - `const { default: React } = await import('https://cdn.skypack.dev/react@17.0.2');`
   - `const { default: ReactDom } = await import('https://cdn.skypack.dev/react-dom@17.0.2');`
-- Import view1 dynamically.
-  - `const View1 = await import('http://localhost:5001/static/js/[entrypoint].js');`
+- Import view1 dynamically. `[manifest-module]` is the hashed `module`
+  entrypoint that can be found at http://localhost:5001/package.json
+  - `const View1 = await import('http://localhost:5001/[manifest-module]');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View1.default, null), view1);`
-- Import view2 dynamically.
-  - `const View2 = await import('http://localhost:5002/static/js/[entrypoint].js');`
+- Import view2 dynamically. `[manifest-module]` is the hashed `module`
+  entrypoint that can be found at http://localhost:5002/package.json
+  - `const View2 = await import('http://localhost:5002/[manifest-module]');`
 - Render it onto its container div
   - `ReactDom.render(React.createElement(View2.default, null), view2);`
 - Import and apply view1 stylesheet (after, to show how it works) - this uses
   [CSS Module Scripts](https://web.dev/css-module-scripts/), which, if needed,
-  can be sandboxed by the host at runtime.
-  - `const cssModule = await import('http://localhost:5001/static/css/[style-entrypoint].css', { assert: { type: 'css' }});`
+  can be sandboxed by the host at runtime. `[manifest-module]` is the hashed
+  `style` entrypoint that can be found at http://localhost:5001/package.json
+  - `const cssModule = await import('http://localhost:5001/[manifest-style]', { assert: { type: 'css' }});`
   - `document.adoptedStyleSheets = [...document.adoptedStyleSheets, cssModule.default];`
